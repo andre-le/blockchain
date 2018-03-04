@@ -1539,7 +1539,11 @@ classnames@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
+<<<<<<< HEAD
 clean-css@4.1.9, clean-css@4.1.x:
+=======
+clean-css@4.1.x:
+>>>>>>> 5ca211efeb9fddd72128cf9144e1dabe605fdb2e
   version "4.1.9"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.1.9.tgz#35cee8ae7687a49b98034f70de00c4edd3826301"
   dependencies:
@@ -7262,6 +7266,7 @@ semantic-ui-react@^0.78.3:
     lodash "^4.17.4"
     prop-types "^15.5.10"
 
+<<<<<<< HEAD
 semantic-ui@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/semantic-ui/-/semantic-ui-2.3.0.tgz#887fc5e43f638f3ab6d64de69c394e15a42571d7"
@@ -7302,6 +7307,8 @@ semantic-ui@^2.3.0:
     wrench-sui "^0.0.3"
     yamljs "^0.3.0"
 
+=======
+>>>>>>> 5ca211efeb9fddd72128cf9144e1dabe605fdb2e
 semver-diff@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/semver-diff/-/semver-diff-2.1.0.tgz#4bbb8437c8d37e4b0cf1a68fd726ec6d645d6d36"
