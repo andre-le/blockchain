@@ -1,3 +1,4 @@
+import random
 import hashlib
 import json
 from time import time
@@ -120,6 +121,18 @@ class Blockchain:
         self.chain.append(block)
         return block
 
+    #Smart Contract - Authentication service: automatically verify the building
+    def smart_contract(self):
+        arr = [True, False]
+        return {
+            "insurance": arr[random.randint(0,1)],
+            "public_record": arr[random.randint(0,1)],
+            "asset_id": arr[random.randint(0,1)],
+            "invoice": arr[random.randint(0,1)],
+            "depreciation": arr[random.randint(0,1)],
+            "life_cycle": arr[random.randint(0,1)]
+        }
+
     def new_transaction(self, company, building_name, verification):
         """
         Creates a new transaction to go into the next mined Block
@@ -129,6 +142,9 @@ class Blockchain:
         :param verification: An object contains all the verification
         :return: The index of the Block that will hold this transaction
         """
+
+        verification = self.smart_contract()
+
         self.current_transactions.append({
             'company': company,
             'building_name': building_name,
