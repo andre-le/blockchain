@@ -120,19 +120,19 @@ class Blockchain:
         self.chain.append(block)
         return block
 
-    def new_transaction(self, sender, recipient, amount):
+    def new_transaction(self, company, building_name, verification):
         """
         Creates a new transaction to go into the next mined Block
 
-        :param sender: Address of the Sender
-        :param recipient: Address of the Recipient
-        :param amount: Amount
+        :param company: Name of Company
+        :param building_name: Name of the Building
+        :param verification: An object contains all the verification
         :return: The index of the Block that will hold this transaction
         """
         self.current_transactions.append({
-            'sender': sender,
-            'recipient': recipient,
-            'amount': amount,
+            'company': company,
+            'building_name': building_name,
+            'verification': verification,
         })
 
         return self.last_block['index'] + 1
@@ -159,7 +159,7 @@ class Blockchain:
 
          - Find a number p' such that hash(pp') contains leading 4 zeroes
          - Where p is the previous proof, and p' is the new proof
-         
+
         :param last_block: <dict> last Block
         :return: <int>
         """
@@ -209,9 +209,9 @@ def mine():
     # We must receive a reward for finding the proof.
     # The sender is "0" to signify that this node has mined a new coin.
     blockchain.new_transaction(
-        sender="0",
-        recipient=node_identifier,
-        amount=1,
+        company="0",
+        building_name=node_identifier,
+        verification={},
     )
 
     # Forge the new Block by adding it to the chain
@@ -233,12 +233,12 @@ def new_transaction():
     values = request.get_json()
 
     # Check that the required fields are in the POST'ed data
-    required = ['sender', 'recipient', 'amount']
+    required = ['company', 'building_name', 'verification']
     if not all(k in values for k in required):
         return 'Missing values', 400
 
     # Create a new Transaction
-    index = blockchain.new_transaction(values['sender'], values['recipient'], values['amount'])
+    index = blockchain.new_transaction(values['company'], values['building_name'], values['verification'])
 
     response = {'message': f'Transaction will be added to Block {index}'}
     return jsonify(response), 201
