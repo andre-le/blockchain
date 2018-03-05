@@ -6,12 +6,12 @@ import './style1.css';
 
 const resultRenderer = ({ title }) => <Label content={title} />
 
-
 class App extends Component {
+
   render() {
     return (
       <div className="App">
-    <SearchExampleStandard resultRenderer={resultRenderer} />
+        <SearchExampleStandard resultRenderer={resultRenderer} source={this.props.source}/>
       </div>
     );
   }
